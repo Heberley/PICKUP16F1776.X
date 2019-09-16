@@ -19,7 +19,6 @@
 
 /* <Initialize variables in user.h and insert code for user algorithms.> */
 
-void PIN_MANAGER_Initialize(void);
 
 void InitApp(void) {
 
@@ -27,36 +26,45 @@ void InitApp(void) {
     LATA = 0x00;
     LATB = 0x00;
     LATC = 0x00;
-
     /**
     TRISx registers
     */
     TRISA = 0x7B;
     TRISB = 0xD7;
     TRISC = 0xFD;
-
     /**
     ANSELx registers
     */
-    ANSELC = 0xFC;
-    ANSELB = 0x17;
-    ANSELA = 0x3F;
+    ANSELC = 0x0C;
+    ANSELB = 0x00;
+    ANSELA = 0x0F;
 
     RA7PPS = 0x1D;   //RA7->PWM5:PWM5OUT;    
     RB5PPS = 0x15;   //RB5->CCP1:CCP1;    
     RC1PPS = 0x17;   //RC1->CCP7:CCP7;    
     RB3PPS = 0x16;   //RB3->CCP2:CCP2;  
 
-    /* Initialize peripherals */
 
 
-    /* Enable interrupts */
+    /* Enable interrupts */ 
+    INTCONbits.GIE=1;
+    INTCONbits.PEIE=1;
+    
 
     
     
     CCP_Config();
     PWM_Config();
+    UART_Config();
+    DAC_Config();
 }
+
+
+/*Configuración de Los registros correspondientes al CCP
+ * Esta funcion configura los tres modulos CCP en un funcionamiento
+ * de PWM estandar, con una resolución de 10 bits, sin prescales  y 
+ * por tanto a la frecuencia maxima
+ */
 
 void CCP_Config(void) {
 
@@ -108,17 +116,64 @@ void CCP_Config(void) {
     
 }
 
+
 void PWM_Config(void) {
 
-//    RA4PPS = 0b011101;
-//    PWM5LDCONbits.LDA = 1;
-//    PWM5LDCONbits.PWM5LD=1;
-//    PWM5CONbits.MODE = 0b00;
-//    PWM5PR = 1300;
-//    PWM5DC = 500;
-//    PWM5CONbits.EN = 0;
+}
+
+
+/*Esta funcion esta desarrollada para cargar un valor determinado
+ en el CCPRX correspondiente al PWM seleccionado en el canal*/
+
+void duty_PWM(int valor, char canal) {
+
+    if (canal == 1) {
+        CCPR1 = valor;
+    } else if (canal == 2) {
+        CCPR2 = valor ;
+    } else if (canal == 3) {
+        CCPR7 = valor ;
+    }
+
+}
+
+//Configuracion DAC
+
+void DAC_Config() {
+    
+    DAC1CON0=0b10100000;
+    DAC1REF=500;
+
+}
+
+//COnfiguracion UART ASYNCRONO
+
+void UART_Config() {
+
+    TX1STAbits.TXEN = 1;
+    RC1STAbits.SPEN = 1;
+    TX1STAbits.SYNC = 0;
+    TXSTA1bits.BRGH = 1;
+    
+    CREN = 1;
+    SPBRG = 207;//9600
+    
+    //Interrupción en la recepción
+    PIE1bits.RCIE = 1;
+    
+    //Configuración de los puertos
+    TRISCbits.TRISC6=0;//TX
+    TRISCbits.TRISC7=1;//RX
+    
+    RC6PPS = 0b100100;   //RC6 es TX;   
+    //RC7PPS = 0x17;   //RC1->CCP7:CCP7; 
+    
+   
 
 
 
 }
 
+void DAC_Set(int DACvalue){
+    DAC1REF=DACvalue;
+}

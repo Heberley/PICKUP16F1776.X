@@ -1,4 +1,28 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"642 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1776.h
+[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S37 . TMR1IF TMR2IF CCP1IF SSP1IF TXIF RCIF ADIF TMR1GIF ]
+"652
+[s S38 :2 `uc 1 :1 `uc 1 ]
+[n S38 . . CCPIF ]
+"641
+[u S36 `S37 1 `S38 1 ]
+[n S36 . . . ]
+"657
+[v _PIR1bits `VS36 ~T0 @X0 0 e@17 ]
+"4069
+[v _RC1REG `Vuc ~T0 @X0 0 e@409 ]
+"357
+[s S26 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S26 . IOCIF INTF TMR0IF IOCIE INTE TMR0IE PEIE GIE ]
+"367
+[s S27 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S27 . . T0IF . T0IE ]
+"356
+[u S25 `S26 1 `S27 1 ]
+[n S25 . . . ]
+"374
+[v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -13536,17 +13560,65 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 289: typedef int16_t intptr_t;
 [; ;stdint.h: 294: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 15: typedef unsigned char bool;
-[v $root$_isr `(v ~T0 @X0 0 e ]
-[v F11867 `(v ~T0 @X0 1 tf ]
 "23 interrupts.c
-[v _isr `IF11867 ~T0 @X0 1 e ]
+[v _palabra `uc ~T0 @X0 -> 8 `i e ]
+[; ;interrupts.c: 23: char palabra[8];
 "24
+[v _n `uc ~T0 @X0 1 e ]
+[; ;interrupts.c: 24: char n;
+"25
+[v _enter `uc ~T0 @X0 1 e ]
+[; ;interrupts.c: 25: char enter;
+[v $root$_isr `(v ~T0 @X0 0 e ]
+[v F11870 `(v ~T0 @X0 1 tf ]
+"27
+[v _isr `IF11870 ~T0 @X0 1 e ]
+"28
 {
-[; ;interrupts.c: 23: void interrupt isr(void)
-[; ;interrupts.c: 24: {
+[; ;interrupts.c: 27: void interrupt isr(void)
+[; ;interrupts.c: 28: {
 [e :U _isr ]
 [f ]
-[; ;interrupts.c: 50: }
-"50
+[; ;interrupts.c: 34: if (PIR1bits.RCIF) {
+"34
+[e $ ! != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i 1727  ]
+{
+[; ;interrupts.c: 35: palabra[n] = RC1REG;
+"35
+[e = *U + &U _palabra * -> _n `ux -> -> # *U &U _palabra `ui `ux _RC1REG ]
+[; ;interrupts.c: 36: if (palabra[n] == '\r') {
+"36
+[e $ ! == -> *U + &U _palabra * -> _n `ux -> -> # *U &U _palabra `ui `ux `ui -> 13 `ui 1728  ]
+{
+[; ;interrupts.c: 37: enter = 1;
+"37
+[e = _enter -> -> 1 `i `uc ]
+"38
+}
+[e :U 1728 ]
+[; ;interrupts.c: 38: }
+[; ;interrupts.c: 39: n++;
+"39
+[e ++ _n -> -> 1 `i `uc ]
+[; ;interrupts.c: 40: PIR1bits.RCIF=0;
+"40
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"41
+}
+[; ;interrupts.c: 41: }else if(INTCONbits.T0IF){
+[e $U 1729  ]
+[e :U 1727 ]
+[e $ ! != -> . . _INTCONbits 1 1 `i -> -> -> 0 `i `Vuc `i 1730  ]
+{
+[; ;interrupts.c: 42: INTCONbits.T0IF=0;
+"42
+[e = . . _INTCONbits 1 1 -> -> 0 `i `uc ]
+"43
+}
+[e :U 1730 ]
+"45
+[e :U 1729 ]
+[; ;interrupts.c: 43: }
+[; ;interrupts.c: 45: }
 [e :UE 1726 ]
 }

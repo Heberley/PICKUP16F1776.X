@@ -25,10 +25,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RC1PPS `Vuc ~T0 @X0 0 e@3745 ]
 "32993
 [v _RB3PPS `Vuc ~T0 @X0 0 e@3739 ]
+"357
+[s S26 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S26 . IOCIF INTF TMR0IF IOCIE INTE TMR0IE PEIE GIE ]
+"367
+[s S27 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S27 . . T0IF . T0IE ]
+"356
+[u S25 `S26 1 `S27 1 ]
+[n S25 . . . ]
+"374
+[v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
 "14 user.h
 [v _CCP_Config `(v ~T0 @X0 0 ef ]
 "15
 [v _PWM_Config `(v ~T0 @X0 0 ef ]
+"16
+[v _UART_Config `(v ~T0 @X0 0 ef ]
+"17
+[v _DAC_Config `(v ~T0 @X0 0 ef ]
 "7883 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1776.h
 [s S378 :2 `uc 1 :2 `uc 1 :2 `uc 1 ]
 [n S378 . C1TSEL C2TSEL C7TSEL ]
@@ -75,6 +90,59 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PIR1bits `VS36 ~T0 @X0 0 e@17 ]
 "11565
 [v _T2CON `Vuc ~T0 @X0 0 e@1173 ]
+"13126
+[v _DAC1CON0 `Vuc ~T0 @X0 0 e@1422 ]
+"13344
+[v _DAC1REF `Vus ~T0 @X0 0 e@1423 ]
+"4503
+[s S228 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S228 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"4502
+[u S227 `S228 1 ]
+[n S227 . . ]
+"4514
+[v _TX1STAbits `VS227 ~T0 @X0 0 e@414 ]
+"4323
+[s S222 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S222 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"4322
+[u S221 `S222 1 ]
+[n S221 . . ]
+"4334
+[v _RC1STAbits `VS221 ~T0 @X0 0 e@413 ]
+"4558
+[s S230 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S230 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"4557
+[u S229 `S230 1 ]
+[n S229 . . ]
+"4569
+[v _TXSTA1bits `VS229 ~T0 @X0 0 e@414 ]
+"38486
+[v _CREN `Vb ~T0 @X0 0 e@3308 ]
+"4189
+[v _SPBRG `Vuc ~T0 @X0 0 e@411 ]
+"1848
+[s S88 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S88 . TMR1IE TMR2IE CCP1IE SSP1IE TXIE RCIE ADIE TMR1GIE ]
+"1858
+[s S89 :2 `uc 1 :1 `uc 1 ]
+[n S89 . . CCPIE ]
+"1847
+[u S87 `S88 1 `S89 1 ]
+[n S87 . . . ]
+"1863
+[v _PIE1bits `VS87 ~T0 @X0 0 e@145 ]
+"1765
+[s S84 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S84 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"1764
+[u S83 `S84 1 ]
+[n S83 . . ]
+"1776
+[v _TRISCbits `VS83 ~T0 @X0 0 e@142 ]
+"33213
+[v _RC6PPS `Vuc ~T0 @X0 0 e@3750 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -13615,130 +13683,261 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user.h: 13: void InitApp(void);
 [; ;user.h: 14: void CCP_Config();
 [; ;user.h: 15: void PWM_Config(void);
-[; ;user.c: 22: void PIN_MANAGER_Initialize(void);
-"24 user.c
+[; ;user.h: 16: void UART_Config(void);
+[; ;user.h: 17: void DAC_Config(void);
+[; ;user.h: 18: void DAC_Set(int DACvalue);
+[; ;user.h: 19: void duty_PWM(int valor, char canal) ;
+[; ;user.h: 20: void UART_Config(void);
+"23 user.c
 [v _InitApp `(v ~T0 @X0 1 ef ]
 {
-[; ;user.c: 24: void InitApp(void) {
+[; ;user.c: 23: void InitApp(void) {
 [e :U _InitApp ]
 [f ]
-[; ;user.c: 27: LATA = 0x00;
-"27
+[; ;user.c: 26: LATA = 0x00;
+"26
 [e = _LATA -> -> 0 `i `uc ]
-[; ;user.c: 28: LATB = 0x00;
-"28
+[; ;user.c: 27: LATB = 0x00;
+"27
 [e = _LATB -> -> 0 `i `uc ]
-[; ;user.c: 29: LATC = 0x00;
-"29
+[; ;user.c: 28: LATC = 0x00;
+"28
 [e = _LATC -> -> 0 `i `uc ]
-[; ;user.c: 34: TRISA = 0x7B;
-"34
+[; ;user.c: 32: TRISA = 0x7B;
+"32
 [e = _TRISA -> -> 123 `i `uc ]
-[; ;user.c: 35: TRISB = 0xD7;
-"35
+[; ;user.c: 33: TRISB = 0xD7;
+"33
 [e = _TRISB -> -> 215 `i `uc ]
-[; ;user.c: 36: TRISC = 0xFD;
-"36
+[; ;user.c: 34: TRISC = 0xFD;
+"34
 [e = _TRISC -> -> 253 `i `uc ]
-[; ;user.c: 41: ANSELC = 0xFC;
-"41
-[e = _ANSELC -> -> 252 `i `uc ]
-[; ;user.c: 42: ANSELB = 0x17;
+[; ;user.c: 38: ANSELC = 0x0C;
+"38
+[e = _ANSELC -> -> 12 `i `uc ]
+[; ;user.c: 39: ANSELB = 0x00;
+"39
+[e = _ANSELB -> -> 0 `i `uc ]
+[; ;user.c: 40: ANSELA = 0x0F;
+"40
+[e = _ANSELA -> -> 15 `i `uc ]
+[; ;user.c: 42: RA7PPS = 0x1D;
 "42
-[e = _ANSELB -> -> 23 `i `uc ]
-[; ;user.c: 43: ANSELA = 0x3F;
-"43
-[e = _ANSELA -> -> 63 `i `uc ]
-[; ;user.c: 45: RA7PPS = 0x1D;
-"45
 [e = _RA7PPS -> -> 29 `i `uc ]
-[; ;user.c: 46: RB5PPS = 0x15;
-"46
+[; ;user.c: 43: RB5PPS = 0x15;
+"43
 [e = _RB5PPS -> -> 21 `i `uc ]
-[; ;user.c: 47: RC1PPS = 0x17;
-"47
+[; ;user.c: 44: RC1PPS = 0x17;
+"44
 [e = _RC1PPS -> -> 23 `i `uc ]
-[; ;user.c: 48: RB3PPS = 0x16;
-"48
+[; ;user.c: 45: RB3PPS = 0x16;
+"45
 [e = _RB3PPS -> -> 22 `i `uc ]
-[; ;user.c: 57: CCP_Config();
-"57
+[; ;user.c: 50: INTCONbits.GIE=1;
+"50
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;user.c: 51: INTCONbits.PEIE=1;
+"51
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+[; ;user.c: 56: CCP_Config();
+"56
 [e ( _CCP_Config ..  ]
-[; ;user.c: 58: PWM_Config();
-"58
+[; ;user.c: 57: PWM_Config();
+"57
 [e ( _PWM_Config ..  ]
-[; ;user.c: 59: }
+[; ;user.c: 58: UART_Config();
+"58
+[e ( _UART_Config ..  ]
+[; ;user.c: 59: DAC_Config();
 "59
+[e ( _DAC_Config ..  ]
+[; ;user.c: 60: }
+"60
 [e :UE 1726 ]
 }
-"61
+"69
 [v _CCP_Config `(v ~T0 @X0 1 ef ]
 {
-[; ;user.c: 61: void CCP_Config(void) {
+[; ;user.c: 69: void CCP_Config(void) {
 [e :U _CCP_Config ]
 [f ]
-[; ;user.c: 65: CCPTMRS1bits.C1TSEL = 0x0;
-"65
-[e = . . _CCPTMRS1bits 0 0 -> -> 0 `i `uc ]
-[; ;user.c: 66: CCPTMRS1bits.C2TSEL = 0x0;
-"66
-[e = . . _CCPTMRS1bits 0 1 -> -> 0 `i `uc ]
-[; ;user.c: 67: CCPTMRS1bits.C7TSEL = 0x0;
-"67
-[e = . . _CCPTMRS1bits 0 2 -> -> 0 `i `uc ]
-[; ;user.c: 70: T2PR=255;
-"70
-[e = _T2PR -> -> 255 `i `uc ]
-[; ;user.c: 73: CCP1CON = 0x8F;
+[; ;user.c: 73: CCPTMRS1bits.C1TSEL = 0x0;
 "73
-[e = _CCP1CON -> -> 143 `i `uc ]
-[; ;user.c: 74: CCPR1=510;
+[e = . . _CCPTMRS1bits 0 0 -> -> 0 `i `uc ]
+[; ;user.c: 74: CCPTMRS1bits.C2TSEL = 0x0;
 "74
-[e = _CCPR1 -> -> 510 `i `us ]
-[; ;user.c: 77: CCP2CON = 0x8F;
-"77
-[e = _CCP2CON -> -> 143 `i `uc ]
-[; ;user.c: 78: CCPR2=210;
+[e = . . _CCPTMRS1bits 0 1 -> -> 0 `i `uc ]
+[; ;user.c: 75: CCPTMRS1bits.C7TSEL = 0x0;
+"75
+[e = . . _CCPTMRS1bits 0 2 -> -> 0 `i `uc ]
+[; ;user.c: 78: T2PR=255;
 "78
-[e = _CCPR2 -> -> 210 `i `us ]
-[; ;user.c: 81: CCP7CON = 0x8F;
-"81
-[e = _CCP7CON -> -> 143 `i `uc ]
-[; ;user.c: 82: CCPR7=510;
-"82
-[e = _CCPR7 -> -> 510 `i `us ]
-[; ;user.c: 89: T2CLKCON = 0x01;
-"89
-[e = _T2CLKCON -> -> 1 `i `uc ]
-[; ;user.c: 92: T2HLT = 0x00;
-"92
-[e = _T2HLT -> -> 0 `i `uc ]
-[; ;user.c: 95: T2RST = 0x00;
-"95
-[e = _T2RST -> -> 0 `i `uc ]
-[; ;user.c: 98: T2PR = 0xFF;
-"98
 [e = _T2PR -> -> 255 `i `uc ]
-[; ;user.c: 101: T2TMR = 0x00;
-"101
+[; ;user.c: 81: CCP1CON = 0x8F;
+"81
+[e = _CCP1CON -> -> 143 `i `uc ]
+[; ;user.c: 82: CCPR1=510;
+"82
+[e = _CCPR1 -> -> 510 `i `us ]
+[; ;user.c: 85: CCP2CON = 0x8F;
+"85
+[e = _CCP2CON -> -> 143 `i `uc ]
+[; ;user.c: 86: CCPR2=210;
+"86
+[e = _CCPR2 -> -> 210 `i `us ]
+[; ;user.c: 89: CCP7CON = 0x8F;
+"89
+[e = _CCP7CON -> -> 143 `i `uc ]
+[; ;user.c: 90: CCPR7=510;
+"90
+[e = _CCPR7 -> -> 510 `i `us ]
+[; ;user.c: 97: T2CLKCON = 0x01;
+"97
+[e = _T2CLKCON -> -> 1 `i `uc ]
+[; ;user.c: 100: T2HLT = 0x00;
+"100
+[e = _T2HLT -> -> 0 `i `uc ]
+[; ;user.c: 103: T2RST = 0x00;
+"103
+[e = _T2RST -> -> 0 `i `uc ]
+[; ;user.c: 106: T2PR = 0xFF;
+"106
+[e = _T2PR -> -> 255 `i `uc ]
+[; ;user.c: 109: T2TMR = 0x00;
+"109
 [e = _T2TMR -> -> 0 `i `uc ]
-[; ;user.c: 104: PIR1bits.TMR2IF = 0;
-"104
+[; ;user.c: 112: PIR1bits.TMR2IF = 0;
+"112
 [e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
-[; ;user.c: 107: T2CON = 0x80;
-"107
+[; ;user.c: 115: T2CON = 0x80;
+"115
 [e = _T2CON -> -> 128 `i `uc ]
-[; ;user.c: 152: }
-"152
+[; ;user.c: 117: }
+"117
 [e :UE 1727 ]
 }
-"154
+"120
 [v _PWM_Config `(v ~T0 @X0 1 ef ]
 {
-[; ;user.c: 154: void PWM_Config(void) {
+[; ;user.c: 120: void PWM_Config(void) {
 [e :U _PWM_Config ]
 [f ]
-[; ;user.c: 166: }
-"166
+[; ;user.c: 122: }
+"122
 [e :UE 1728 ]
+}
+"128
+[v _duty_PWM `(v ~T0 @X0 1 ef2`i`uc ]
+{
+[; ;user.c: 128: void duty_PWM(int valor, char canal) {
+[e :U _duty_PWM ]
+[v _valor `i ~T0 @X0 1 r1 ]
+[v _canal `uc ~T0 @X0 1 r2 ]
+[f ]
+[; ;user.c: 130: if (canal == 1) {
+"130
+[e $ ! == -> _canal `i -> 1 `i 1730  ]
+{
+[; ;user.c: 131: CCPR1 = valor;
+"131
+[e = _CCPR1 -> _valor `us ]
+"132
+}
+[; ;user.c: 132: } else if (canal == 2) {
+[e $U 1731  ]
+[e :U 1730 ]
+[e $ ! == -> _canal `i -> 2 `i 1732  ]
+{
+[; ;user.c: 133: CCPR2 = valor ;
+"133
+[e = _CCPR2 -> _valor `us ]
+"134
+}
+[; ;user.c: 134: } else if (canal == 3) {
+[e $U 1733  ]
+[e :U 1732 ]
+[e $ ! == -> _canal `i -> 3 `i 1734  ]
+{
+[; ;user.c: 135: CCPR7 = valor ;
+"135
+[e = _CCPR7 -> _valor `us ]
+"136
+}
+[e :U 1734 ]
+"138
+[e :U 1733 ]
+[e :U 1731 ]
+[; ;user.c: 136: }
+[; ;user.c: 138: }
+[e :UE 1729 ]
+}
+"142
+[v _DAC_Config `(v ~T0 @X0 1 ef ]
+{
+[; ;user.c: 142: void DAC_Config() {
+[e :U _DAC_Config ]
+[f ]
+[; ;user.c: 144: DAC1CON0=0b10100000;
+"144
+[e = _DAC1CON0 -> -> 160 `i `uc ]
+[; ;user.c: 145: DAC1REF=500;
+"145
+[e = _DAC1REF -> -> 500 `i `us ]
+[; ;user.c: 147: }
+"147
+[e :UE 1735 ]
+}
+"151
+[v _UART_Config `(v ~T0 @X0 1 ef ]
+{
+[; ;user.c: 151: void UART_Config() {
+[e :U _UART_Config ]
+[f ]
+[; ;user.c: 153: TX1STAbits.TXEN = 1;
+"153
+[e = . . _TX1STAbits 0 5 -> -> 1 `i `uc ]
+[; ;user.c: 154: RC1STAbits.SPEN = 1;
+"154
+[e = . . _RC1STAbits 0 7 -> -> 1 `i `uc ]
+[; ;user.c: 155: TX1STAbits.SYNC = 0;
+"155
+[e = . . _TX1STAbits 0 4 -> -> 0 `i `uc ]
+[; ;user.c: 156: TXSTA1bits.BRGH = 1;
+"156
+[e = . . _TXSTA1bits 0 2 -> -> 1 `i `uc ]
+[; ;user.c: 158: CREN = 1;
+"158
+[e = _CREN -> -> 1 `i `b ]
+[; ;user.c: 159: SPBRG = 207;
+"159
+[e = _SPBRG -> -> 207 `i `uc ]
+[; ;user.c: 162: PIE1bits.RCIE = 1;
+"162
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+[; ;user.c: 165: TRISCbits.TRISC6=0;
+"165
+[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
+[; ;user.c: 166: TRISCbits.TRISC7=1;
+"166
+[e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
+[; ;user.c: 168: RC6PPS = 0b100100;
+"168
+[e = _RC6PPS -> -> 36 `i `uc ]
+[; ;user.c: 175: }
+"175
+[e :UE 1736 ]
+}
+"177
+[v _DAC_Set `(v ~T0 @X0 1 ef1`i ]
+{
+[; ;user.c: 177: void DAC_Set(int DACvalue){
+[e :U _DAC_Set ]
+[v _DACvalue `i ~T0 @X0 1 r1 ]
+[f ]
+[; ;user.c: 178: DAC1REF=DACvalue;
+"178
+[e = _DAC1REF -> _DACvalue `us ]
+[; ;user.c: 179: }
+"179
+[e :UE 1737 ]
 }

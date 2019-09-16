@@ -13,4 +13,10 @@
 void InitApp(void);         /* I/O and Peripheral Initialization */
 void CCP_Config();    //Funcion para configurar 
 void PWM_Config(void);
+void UART_Config(void);//Configuración del UART
+void DAC_Config(void);//Configuración Inicial del DAC
+void DAC_Set(int DACvalue);//Set DAC valor
+void duty_PWM(int valor, char canal) ;
+void UART_Config(void);
+
 

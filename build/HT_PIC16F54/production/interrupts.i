@@ -19753,9 +19753,24 @@ typedef uint16_t uintptr_t;
 typedef unsigned char bool;
 
 # 23 "interrupts.c"
+char palabra[8];
+char n;
+char enter;
+
 void interrupt isr(void)
 {
 
-# 50
+# 34
+if (PIR1bits.RCIF) {
+palabra[n] = RC1REG;
+if (palabra[n] == '\r') {
+enter = 1;
+}
+n++;
+PIR1bits.RCIF=0;
+}else if(INTCONbits.T0IF){
+INTCONbits.T0IF=0;
+}
+
 }
 

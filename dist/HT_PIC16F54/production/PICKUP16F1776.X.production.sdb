@@ -3,23 +3,58 @@
 [d edition pro ]
 [d chip 16F1776 ]
 [d frameptr 6 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\atoi.c
+[v _atoi atoi `(i  1 e 2 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\isdigit.c
+[v _isdigit isdigit `(b  1 e 0 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\strcpy.c
+[v _strcpy strcpy `(*.4uc  1 e 1 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"23 C:\Users\Heberley\MPLABXProjects\PICKUP16F1776.X\interrupts.c
+"27 C:\Users\Heberley\MPLABXProjects\PICKUP16F1776.X\interrupts.c
 [v _isr isr `II(v  1 e 1 0 ]
-"29 C:\Users\Heberley\MPLABXProjects\PICKUP16F1776.X\main.c
+"43 C:\Users\Heberley\MPLABXProjects\PICKUP16F1776.X\main.c
 [v _main main `(v  1 e 1 0 ]
+"109
+[v _autofocus autofocus `(v  1 e 1 0 ]
 "18 C:\Users\Heberley\MPLABXProjects\PICKUP16F1776.X\system.c
 [v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
-"24 C:\Users\Heberley\MPLABXProjects\PICKUP16F1776.X\user.c
+"23 C:\Users\Heberley\MPLABXProjects\PICKUP16F1776.X\user.c
 [v _InitApp InitApp `(v  1 e 1 0 ]
-"61
+"69
 [v _CCP_Config CCP_Config `(v  1 e 1 0 ]
-"154
+"120
 [v _PWM_Config PWM_Config `(v  1 e 1 0 ]
-[s S138 . 1 `uc 1 TMR1IF 1 0 :1:0 
+"128
+[v _duty_PWM duty_PWM `(v  1 e 1 0 ]
+"142
+[v _DAC_Config DAC_Config `(v  1 e 1 0 ]
+"151
+[v _UART_Config UART_Config `(v  1 e 1 0 ]
+[s S51 . 1 `uc 1 IOCIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 IOCIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"374 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1776.h
+[s S60 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 T0IE 1 0 :1:5 
+]
+[u S65 . 1 `S51 1 . 1 0 `S60 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES65  1 e 1 @11 ]
+[s S22 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSP1IF 1 0 :1:3 
@@ -28,25 +63,52 @@
 `uc 1 ADIF 1 0 :1:6 
 `uc 1 TMR1GIF 1 0 :1:7 
 ]
-"657 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1776.h
-[s S147 . 1 `uc 1 . 1 0 :2:0 
+"657
+[s S31 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 CCPIF 1 0 :1:2 
 ]
-[u S150 . 1 `S138 1 . 1 0 `S147 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES150  1 e 1 @17 ]
+[u S34 . 1 `S22 1 . 1 0 `S31 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES34  1 e 1 @17 ]
 "1635
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
 "1697
 [v _TRISB TRISB `VEuc  1 e 1 @141 ]
 "1759
 [v _TRISC TRISC `VEuc  1 e 1 @142 ]
-[s S45 . 1 `uc 1 SCS 1 0 :2:0 
+[s S396 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1776
+[u S405 . 1 `S396 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES405  1 e 1 @142 ]
+[s S368 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSP1IE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+`uc 1 TMR1GIE 1 0 :1:7 
+]
+"1863
+[s S377 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 CCPIE 1 0 :1:2 
+]
+[u S380 . 1 `S368 1 . 1 0 `S377 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES380  1 e 1 @145 ]
+[s S165 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 . 1 0 :1:2 
 `uc 1 IRCF 1 0 :4:3 
 `uc 1 SPLLEN 1 0 :1:7 
 ]
 "2432
-[s S50 . 1 `uc 1 SCS0 1 0 :1:0 
+[s S170 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 IRCF0 1 0 :1:3 
@@ -54,8 +116,8 @@
 `uc 1 IRCF2 1 0 :1:5 
 `uc 1 IRCF3 1 0 :1:6 
 ]
-[u S58 . 1 `S45 1 . 1 0 `S50 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES58  1 e 1 @155 ]
+[u S178 . 1 `S165 1 . 1 0 `S170 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES178  1 e 1 @155 ]
 "2673
 [v _LATA LATA `VEuc  1 e 1 @268 ]
 "2735
@@ -68,6 +130,38 @@
 [v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
 "3822
 [v _ANSELC ANSELC `VEuc  1 e 1 @398 ]
+"4069
+[v _RC1REG RC1REG `VEuc  1 e 1 @409 ]
+"4132
+[v _TXREG TXREG `VEuc  1 e 1 @410 ]
+"4189
+[v _SPBRG SPBRG `VEuc  1 e 1 @411 ]
+[s S324 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"4334
+[u S333 . 1 `S324 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES333  1 e 1 @413 ]
+[s S303 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"4514
+[u S312 . 1 `S303 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES312  1 e 1 @414 ]
+"4569
+[v _TXSTA1bits TXSTA1bits `VES312  1 e 1 @414 ]
 "7115
 [v _CCPR1 CCPR1 `VEus  1 e 2 @657 ]
 "7162
@@ -80,20 +174,22 @@
 [v _CCPR7 CCPR7 `VEus  1 e 2 @665 ]
 "7670
 [v _CCP7CON CCP7CON `VEuc  1 e 1 @667 ]
-[s S101 . 1 `uc 1 C1TSEL 1 0 :2:0 
+[s S247 . 1 `uc 1 C1TSEL 1 0 :2:0 
 `uc 1 C2TSEL 1 0 :2:2 
 `uc 1 C7TSEL 1 0 :2:4 
 ]
 "7897
-[s S105 . 1 `uc 1 C1TSEL0 1 0 :1:0 
+[s S251 . 1 `uc 1 C1TSEL0 1 0 :1:0 
 `uc 1 C1TSEL1 1 0 :1:1 
 `uc 1 C2TSEL0 1 0 :1:2 
 `uc 1 C2TSEL1 1 0 :1:3 
 `uc 1 C7TSEL0 1 0 :1:4 
 `uc 1 C7TSEL1 1 0 :1:5 
 ]
-[u S112 . 1 `S101 1 . 1 0 `S105 1 . 1 0 ]
-[v _CCPTMRS1bits CCPTMRS1bits `VES112  1 e 1 @670 ]
+[u S258 . 1 `S247 1 . 1 0 `S251 1 . 1 0 ]
+[v _CCPTMRS1bits CCPTMRS1bits `VES258  1 e 1 @670 ]
+"11319
+[v _ADRES ADRES `VEus  1 e 2 @1166 ]
 "11457
 [v _T2TMR T2TMR `VEuc  1 e 1 @1171 ]
 "11511
@@ -106,6 +202,10 @@
 [v _T2CLKCON T2CLKCON `VEuc  1 e 1 @1175 ]
 "11919
 [v _T2RST T2RST `VEuc  1 e 1 @1176 ]
+"13126
+[v _DAC1CON0 DAC1CON0 `VEuc  1 e 1 @1422 ]
+"13344
+[v _DAC1REF DAC1REF `VEus  1 e 2 @1423 ]
 "32913
 [v _RA7PPS RA7PPS `VEuc  1 e 1 @3735 ]
 "32993
@@ -114,33 +214,133 @@
 [v _RB5PPS RB5PPS `VEuc  1 e 1 @3741 ]
 "33113
 [v _RC1PPS RC1PPS `VEuc  1 e 1 @3745 ]
-"29 C:\Users\Heberley\MPLABXProjects\PICKUP16F1776.X\main.c
+"33213
+[v _RC6PPS RC6PPS `VEuc  1 e 1 @3750 ]
+"38486
+[v _CREN CREN `VEb  1 e 0 @3308 ]
+"44273
+[v _TXIF TXIF `VEb  1 e 0 @140 ]
+"23 C:\Users\Heberley\MPLABXProjects\PICKUP16F1776.X\interrupts.c
+[v _palabra palabra `[8]uc  1 e 8 0 ]
+"24
+[v _n n `uc  1 e 1 0 ]
+"25
+[v _enter enter `uc  1 e 1 0 ]
+"31 C:\Users\Heberley\MPLABXProjects\PICKUP16F1776.X\main.c
+[v _ret ret `i  1 e 2 0 ]
+"43
 [v _main main `(v  1 e 1 0 ]
 {
-"49
+"91
 } 0
-"24 C:\Users\Heberley\MPLABXProjects\PICKUP16F1776.X\user.c
+"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\strcpy.c
+[v _strcpy strcpy `(*.4uc  1 e 1 0 ]
+{
+[v strcpy@to to `*.4uc  1 a 1 wreg ]
+"15
+[v strcpy@cp cp `*.4uc  1 a 1 5 ]
+"8
+[v strcpy@to to `*.4uc  1 a 1 wreg ]
+[v strcpy@from from `*.25DCuc  1 p 2 1 ]
+"18
+[v strcpy@to to `*.4uc  1 a 1 4 ]
+"24
+} 0
+"109 C:\Users\Heberley\MPLABXProjects\PICKUP16F1776.X\main.c
+[v _autofocus autofocus `(v  1 e 1 0 ]
+{
+"113
+[v autofocus@i2 i2 `i  1 a 2 9 ]
+"111
+[v autofocus@dutyaf dutyaf `i  1 a 2 7 ]
+"110
+[v autofocus@ADC ADC `i  1 a 2 5 ]
+"131
+} 0
+"128 C:\Users\Heberley\MPLABXProjects\PICKUP16F1776.X\user.c
+[v _duty_PWM duty_PWM `(v  1 e 1 0 ]
+{
+[v duty_PWM@valor valor `i  1 p 2 1 ]
+[v duty_PWM@canal canal `uc  1 p 1 3 ]
+"138
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\atoi.c
+[v _atoi atoi `(i  1 e 2 0 ]
+{
+[v atoi@s s `*.4DCuc  1 a 1 wreg ]
+"7
+[v atoi@a a `i  1 a 2 5 ]
+"8
+[v atoi@sign sign `uc  1 a 1 4 ]
+"5
+[v atoi@s s `*.4DCuc  1 a 1 wreg ]
+[v atoi@s s `*.4DCuc  1 a 1 7 ]
+"24
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\isdigit.c
+[v _isdigit isdigit `(b  1 e 0 0 ]
+{
+[v isdigit@c c `uc  1 a 1 wreg ]
+[v isdigit@c c `uc  1 a 1 wreg ]
+"14
+[v isdigit@c c `uc  1 a 1 2 ]
+"15
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 5 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 1 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 3 ]
+"53
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 2 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 1 ]
+[v ___awdiv@counter counter `uc  1 a 1 0 ]
+"5
+[v ___awdiv@divisor divisor `i  1 p 2 7 ]
+[v ___awdiv@dividend dividend `i  1 p 2 9 ]
+"41
+} 0
+"23 C:\Users\Heberley\MPLABXProjects\PICKUP16F1776.X\user.c
 [v _InitApp InitApp `(v  1 e 1 0 ]
 {
-"59
+"60
 } 0
-"154
+"151
+[v _UART_Config UART_Config `(v  1 e 1 0 ]
+{
+"175
+} 0
+"120
 [v _PWM_Config PWM_Config `(v  1 e 1 0 ]
 {
-"166
+"122
 } 0
-"61
+"142
+[v _DAC_Config DAC_Config `(v  1 e 1 0 ]
+{
+"147
+} 0
+"69
 [v _CCP_Config CCP_Config `(v  1 e 1 0 ]
 {
-"152
+"117
 } 0
 "18 C:\Users\Heberley\MPLABXProjects\PICKUP16F1776.X\system.c
 [v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
 {
 "32
 } 0
-"23 C:\Users\Heberley\MPLABXProjects\PICKUP16F1776.X\interrupts.c
+"27 C:\Users\Heberley\MPLABXProjects\PICKUP16F1776.X\interrupts.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"50
+"45
 } 0

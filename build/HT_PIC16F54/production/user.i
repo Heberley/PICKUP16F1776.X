@@ -19756,10 +19756,13 @@ typedef unsigned char bool;
 void InitApp(void);
 void CCP_Config();
 void PWM_Config(void);
+void UART_Config(void);
+void DAC_Config(void);
+void DAC_Set(int DACvalue);
+void duty_PWM(int valor, char canal) ;
+void UART_Config(void);
 
-# 22 "user.c"
-void PIN_MANAGER_Initialize(void);
-
+# 23 "user.c"
 void InitApp(void) {
 
 
@@ -19767,26 +19770,37 @@ LATA = 0x00;
 LATB = 0x00;
 LATC = 0x00;
 
-# 34
+# 32
 TRISA = 0x7B;
 TRISB = 0xD7;
 TRISC = 0xFD;
 
-# 41
-ANSELC = 0xFC;
-ANSELB = 0x17;
-ANSELA = 0x3F;
+# 38
+ANSELC = 0x0C;
+ANSELB = 0x00;
+ANSELA = 0x0F;
 
 RA7PPS = 0x1D;
 RB5PPS = 0x15;
 RC1PPS = 0x17;
 RB3PPS = 0x16;
 
-# 57
+
+
+
+INTCONbits.GIE=1;
+INTCONbits.PEIE=1;
+
+
+
+
 CCP_Config();
 PWM_Config();
+UART_Config();
+DAC_Config();
 }
 
+# 69
 void CCP_Config(void) {
 
 
@@ -19810,7 +19824,7 @@ CCPR2=210;
 CCP7CON = 0x8F;
 CCPR7=510;
 
-# 89
+# 97
 T2CLKCON = 0x01;
 
 
@@ -19831,11 +19845,59 @@ PIR1bits.TMR2IF = 0;
 
 T2CON = 0x80;
 
-# 152
 }
+
 
 void PWM_Config(void) {
 
-# 166
 }
 
+# 128
+void duty_PWM(int valor, char canal) {
+
+if (canal == 1) {
+CCPR1 = valor;
+} else if (canal == 2) {
+CCPR2 = valor ;
+} else if (canal == 3) {
+CCPR7 = valor ;
+}
+
+}
+
+
+
+void DAC_Config() {
+
+DAC1CON0=0b10100000;
+DAC1REF=500;
+
+}
+
+
+
+void UART_Config() {
+
+TX1STAbits.TXEN = 1;
+RC1STAbits.SPEN = 1;
+TX1STAbits.SYNC = 0;
+TXSTA1bits.BRGH = 1;
+
+CREN = 1;
+SPBRG = 207;
+
+
+PIE1bits.RCIE = 1;
+
+
+TRISCbits.TRISC6=0;
+TRISCbits.TRISC7=1;
+
+RC6PPS = 0b100100;
+
+# 175
+}
+
+void DAC_Set(int DACvalue){
+DAC1REF=DACvalue;
+}
