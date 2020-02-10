@@ -29,11 +29,9 @@ extern char enter;
 extern char palabra[8];
 extern char n;
 int ret;
-char k='\r';
+char k = '\r';
 
 
-
-void potenciometro(char valor);
 void autofocus(void);
 
 /******************************************************************************/
@@ -48,34 +46,38 @@ void main(void) {
     InitApp();
 
 
+
+
+
+
     while (1) {
 
-        
-        
-        
 
+
+
+        __delay_ms(250);
+        NOP();
         if (enter) {
             NOP();
             ret = atoi(palabra);
             NOP();
-
-
             n = n - 2;
             if (palabra[n] == 'z') {
                 duty_PWM(ret, 1);
             } else if (palabra[n] == 'y') {
                 duty_PWM(ret, 2);
-            } else if (palabra[n] == 'a') {
+            } else if (palabra[n] == 't') {
+                duty_PWM(ret, 3);
+            }else if (palabra[n] == 'a') {
                 autofocus();
             } else if (palabra[n] == 'l') {
-                ret = (ret * 31) / 1023;
-                //VREFCON2bits.DACR = ret;
+                DAC_Set(ret);
             }
-            
-            
 
-            TXREG = n + 48;
-            while (TXIF == 0);
+
+
+            TX1REG = n + 48;
+            while (PIR1bits.TXIF == 0);
 
             enter = 0;
             NOP();
@@ -96,27 +98,17 @@ void main(void) {
 /* Global Variable Function Definition                                        */
 
 /******************************************************************************/
-void potenciometro(char valor) {
-    char step = 0;
-    valor = 2 * valor;
-
-    for (char i = 0; i < valor; i++) {
-        step = !step;
-    }
-
-}
-
 void autofocus(void) {
     int ADC = 900;
-    int dutyaf = 250;
+    int dutyaf = 250; //duty del autofocus
 
-    for (int i2 = 1; i2 < 500; i2++) {
+    for (int i2 = 1; i2 < 1023; i2++) {
 
-//        ADCON0bits.GODONE = 1;
-//        while (ADCON0bits.GODONE == 0);
+        ADCON0bits.GO = 1;
+        while (ADCON0bits.GO);
         duty_PWM(i2, 1);
-        __delay_ms(10);
-        
+        __delay_ms(25);
+
         if (ADRES < ADC) {
             ADC = ADRES;
             dutyaf = i2;
@@ -124,8 +116,6 @@ void autofocus(void) {
     }
 
     duty_PWM(dutyaf, 1);
-
-
 
 
 }

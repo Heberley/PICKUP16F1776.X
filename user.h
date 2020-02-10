@@ -18,5 +18,6 @@ void DAC_Config(void);//Configuración Inicial del DAC
 void DAC_Set(int DACvalue);//Set DAC valor
 void duty_PWM(int valor, char canal) ;
 void UART_Config(void);
+void ADC_Config(void);
 
 

@@ -19764,6 +19764,7 @@ void DAC_Config(void);
 void DAC_Set(int DACvalue);
 void duty_PWM(int valor, char canal) ;
 void UART_Config(void);
+void ADC_Config(void);
 
 # 4 "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\__size_t.h"
 typedef unsigned size_t;
@@ -19944,14 +19945,12 @@ extern char enter;
 extern char palabra[8];
 extern char n;
 int ret;
-char k='\r';
+char k = '\r';
 
 
-
-void potenciometro(char valor);
 void autofocus(void);
 
-# 43
+# 41
 void main(void) {
 
 ConfigureOscillator();
@@ -19959,32 +19958,35 @@ ConfigureOscillator();
 
 InitApp();
 
-
+# 53
 while (1) {
 
-# 57
+
+
+
+_delay((unsigned long)((250)*(32000000/4000.0)));
+__nop();
 if (enter) {
 __nop();
 ret = atoi(palabra);
 __nop();
-
-
 n = n - 2;
 if (palabra[n] == 'z') {
 duty_PWM(ret, 1);
 } else if (palabra[n] == 'y') {
 duty_PWM(ret, 2);
-} else if (palabra[n] == 'a') {
+} else if (palabra[n] == 't') {
+duty_PWM(ret, 3);
+}else if (palabra[n] == 'a') {
 autofocus();
 } else if (palabra[n] == 'l') {
-ret = (ret * 31) / 1023;
-
+DAC_Set(ret);
 }
 
 
 
-TXREG = n + 48;
-while (TXIF == 0);
+TX1REG = n + 48;
+while (PIR1bits.TXIF == 0);
 
 enter = 0;
 __nop();
@@ -19999,27 +20001,17 @@ n = 0;
 
 }
 
-# 99
-void potenciometro(char valor) {
-char step = 0;
-valor = 2 * valor;
-
-for (char i = 0; i < valor; i++) {
-step = !step;
-}
-
-}
-
+# 101
 void autofocus(void) {
 int ADC = 900;
 int dutyaf = 250;
 
-for (int i2 = 1; i2 < 500; i2++) {
+for (int i2 = 1; i2 < 1023; i2++) {
 
-
-
+ADCON0bits.GO = 1;
+while (ADCON0bits.GO);
 duty_PWM(i2, 1);
-_delay((unsigned long)((10)*(32000000/4000.0)));
+_delay((unsigned long)((25)*(32000000/4000.0)));
 
 if (ADRES < ADC) {
 ADC = ADRES;
@@ -20028,8 +20020,6 @@ dutyaf = i2;
 }
 
 duty_PWM(dutyaf, 1);
-
-
 
 
 }

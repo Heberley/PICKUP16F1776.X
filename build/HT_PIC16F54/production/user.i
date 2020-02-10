@@ -19761,46 +19761,46 @@ void DAC_Config(void);
 void DAC_Set(int DACvalue);
 void duty_PWM(int valor, char canal) ;
 void UART_Config(void);
+void ADC_Config(void);
 
 # 23 "user.c"
 void InitApp(void) {
-
 
 LATA = 0x00;
 LATB = 0x00;
 LATC = 0x00;
 
-# 32
+# 31
 TRISA = 0x7B;
 TRISB = 0xD7;
-TRISC = 0xFD;
+TRISC = 0b10000000;
 
-# 38
+# 37
 ANSELC = 0x0C;
 ANSELB = 0x00;
 ANSELA = 0x0F;
+
 
 RA7PPS = 0x1D;
 RB5PPS = 0x15;
 RC1PPS = 0x17;
 RB3PPS = 0x16;
-
-
+RC6PPS = 0x24;
+RXPPS = 0b00010111;
+CKPPS=0b00010110;
 
 
 INTCONbits.GIE=1;
 INTCONbits.PEIE=1;
 
-
-
-
 CCP_Config();
 PWM_Config();
 UART_Config();
 DAC_Config();
+ADC_Config();
 }
 
-# 69
+# 68
 void CCP_Config(void) {
 
 
@@ -19814,17 +19814,17 @@ T2PR=255;
 
 
 CCP1CON = 0x8F;
-CCPR1=510;
+CCPR1=550;
 
 
 CCP2CON = 0x8F;
-CCPR2=210;
+CCPR2=550;
 
 
 CCP7CON = 0x8F;
-CCPR7=510;
+CCPR7=550;
 
-# 97
+# 96
 T2CLKCON = 0x01;
 
 
@@ -19852,7 +19852,7 @@ void PWM_Config(void) {
 
 }
 
-# 128
+# 127
 void duty_PWM(int valor, char canal) {
 
 if (canal == 1) {
@@ -19868,10 +19868,10 @@ CCPR7 = valor ;
 
 
 void DAC_Config() {
-
+TRISAbits.TRISA2=0;
 DAC1CON0=0b10100000;
-DAC1REF=500;
 
+DAC_Set(250);
 }
 
 
@@ -19881,10 +19881,22 @@ void UART_Config() {
 TX1STAbits.TXEN = 1;
 RC1STAbits.SPEN = 1;
 TX1STAbits.SYNC = 0;
-TXSTA1bits.BRGH = 1;
 
-CREN = 1;
-SPBRG = 207;
+RC1STAbits.CREN = 1;
+
+
+
+BAUD1CON = 0x00;
+
+
+RC1STA = 0x90;
+
+
+TX1STA = 0x20;
+
+
+SP1BRG=51;
+
 
 
 PIE1bits.RCIE = 1;
@@ -19893,11 +19905,20 @@ PIE1bits.RCIE = 1;
 TRISCbits.TRISC6=0;
 TRISCbits.TRISC7=1;
 
-RC6PPS = 0b100100;
 
-# 175
+TX1REG = 50;
+while (PIR1bits.TXIF == 0);
 }
 
 void DAC_Set(int DACvalue){
 DAC1REF=DACvalue;
+DACLDbits.DAC1LD = 1;
+}
+
+void ADC_Config(){
+TRISAbits.TRISA0=1;
+ADCON1=0b11100000;
+ADCON0=0x00;
+WPUA=0x00;
+ADCON0bits.ADON=1;
 }

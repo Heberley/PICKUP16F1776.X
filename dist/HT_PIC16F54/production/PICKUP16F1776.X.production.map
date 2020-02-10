@@ -5,10 +5,10 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.10\pic\dat\en_msgs.txt \
   -cs -h+dist/HT_PIC16F54/production\PICKUP16F1776.X.production.sym \
   --cmf=dist/HT_PIC16F54/production\PICKUP16F1776.X.production.cmf -z \
-  -Q16F1776 -oC:\Users\Heberley\AppData\Local\Temp\sghk.2 \
+  -Q16F1776 -oC:\Users\Heberley\AppData\Local\Temp\saqc.2 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/HT_PIC16F54/production/PICKUP16F1776.X.production.map -E1 -ver=XC8 \
-  --acfsm=1493 -ASTACK=02015h-023EFh -pstack=STACK -ACODE=00h-07FFhx4 \
+  --acfsm=1493 -ASTACK=02016h-023EFh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
   -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
   -ABANK1=0A0h-0EFh -ABANK2=0120h-016Fh -ABANK3=01A0h-01EFh \
@@ -32,7 +32,7 @@ Linker command line:
   -ppowerup=CODE -pcinit=CODE -pfunctab=ENTRY -ACONFIG=08007h-08008h \
   -pconfig=CONFIG -DCONFIG=2 -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 \
   -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\Heberley\AppData\Local\Temp\sghk.o \
+  C:\Users\Heberley\AppData\Local\Temp\saqc.o \
   dist/HT_PIC16F54/production\PICKUP16F1776.X.production.o 
 
 Object code version is 3.11
@@ -42,34 +42,35 @@ Machine type is 16F1776
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Heberley\AppData\Local\Temp\sghk.o
+C:\Users\Heberley\AppData\Local\Temp\saqc.o
                 end_init                             2F       2F        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        2    1000E       0
 dist/HT_PIC16F54/production\PICKUP16F1776.X.production.o
                 cinit                                31       31       14        8       0
                 intentry                              4        4       2B        8       0
-                text13                              2D5      2D5        9        8       0
-                text12                              200      200       2B        8       0
-                text11                              2DE      2DE        8        8       0
-                text10                              2E8      2E8        1      5D0       0
-                text9                               2C5      2C5       10        8       0
-                text8                               22B      22B       29        8       0
-                text7                               155      155       60        8       0
-                text6                               277      277       1F        8       0
-                text5                               2B3      2B3       12        8       0
-                text4                                D7       D7       7E        8       0
-                text3                               254      254       23        8       0
-                text2                               1B5      1B5       4B        8       0
-                text1                               296      296       1D        8       0
-                maintext                             45       45       92        8       0
-                cstackBANK0                          2B       2B        9       20       1
+                text14                              2BC      2BC        9        8       0
+                text13                              2B1      2B1        B        8       0
+                text12                              1ED      1ED       2B        8       0
+                text11                              2C5      2C5        7        8       0
+                text10                              2A4      2A4        D        8       0
+                text9                               2CE      2CE        1      59C       0
+                text8                               277      277       1B        8       0
+                text7                               1BA      1BA       33        8       0
+                text6                               23B      23B       1F        8       0
+                text5                               292      292       12        8       0
+                text4                                E7       E7       7E        8       0
+                text3                               218      218       23        8       0
+                text2                               165      165       55        8       0
+                text1                               25A      25A       1D        8       0
+                maintext                             45       45       A2        8       0
+                cstackBANK0                          2B       2B        A       20       1
                 cstackCOMMON                         70       70        C       70       1
-                dataBANK0                            34       34        1       20       1
+                dataBANK0                            35       35        1       20       1
                 bssBANK0                             20       20        B       20       1
                 bssCOMMON                            7C       7C        1       70       1
-                stringtext1                         2E7      2E7        1      5CE       0
-                idataBANK0                          2E6      2E6        1        8       0
+                stringtext1                         2CD      2CD        1      59A       0
+                idataBANK0                          2CC      2CC        1        8       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -79,24 +80,25 @@ TOTAL           Name                               Link     Load   Length     Sp
                 cinit                                31       31       14         0
                 intentry                              4        4       2B         0
                 reset_vec                             0        0        2         0
-                text13                              2D5      2D5        9         0
-                text12                              200      200       2B         0
-                text11                              2DE      2DE        8         0
-                text10                              2E8      2E8        1         0
-                text9                               2C5      2C5       10         0
-                text8                               22B      22B       29         0
-                text7                               155      155       60         0
-                text6                               277      277       1F         0
-                text5                               2B3      2B3       12         0
-                text4                                D7       D7       7E         0
-                text3                               254      254       23         0
-                text2                               1B5      1B5       4B         0
-                text1                               296      296       1D         0
-                maintext                             45       45       92         0
-                idataBANK0                          2E6      2E6        1         0
+                text14                              2BC      2BC        9         0
+                text13                              2B1      2B1        B         0
+                text12                              1ED      1ED       2B         0
+                text11                              2C5      2C5        7         0
+                text10                              2A4      2A4        D         0
+                text9                               2CE      2CE        1         0
+                text8                               277      277       1B         0
+                text7                               1BA      1BA       33         0
+                text6                               23B      23B       1F         0
+                text5                               292      292       12         0
+                text4                                E7       E7       7E         0
+                text3                               218      218       23         0
+                text2                               165      165       55         0
+                text1                               25A      25A       1D         0
+                maintext                             45       45       A2         0
+                idataBANK0                          2CC      2CC        1         0
 
         CLASS   STRCODE        
-                stringtext1                         2E7      2E7        1         0
+                stringtext1                         2CD      2CD        1         0
 
         CLASS   STRING         
 
@@ -109,8 +111,8 @@ TOTAL           Name                               Link     Load   Length     Sp
                 bssCOMMON                            7C       7C        1         1
 
         CLASS   BANK0          
-                cstackBANK0                          2B       2B        9         1
-                dataBANK0                            34       34        1         1
+                cstackBANK0                          2B       2B        A         1
+                dataBANK0                            35       35        1         1
                 bssBANK0                             20       20        B         1
 
         CLASS   BANK1          
@@ -258,18 +260,18 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000002  000002         0       0  CODE        2
-                intentry                       000004  0002E3  0002E7         8       0  CODE        2
-                bssBANK0                       000020  000015  000035        20       1  BANK0       1
+                intentry                       000004  0002C9  0002CD         8       0  CODE        2
+                bssBANK0                       000020  000016  000036        20       1  BANK0       1
                 cstackCOMMON                   000070  00000D  00007D        70       1  COMMON      1
-                stringtext1                    0002E7  000001  0002E8       5CE       0  STRCODE     2
-                text10                         0002E8  000001  0002E9       5D0       0  CODE        2
+                stringtext1                    0002CD  000001  0002CE       59A       0  STRCODE     2
+                text9                          0002CE  000001  0002CF       59C       0  CODE        2
                 config                         008007  000002  008009     1000E       0  CONFIG      2
 
 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            00035-0006F              3B           1
+        BANK0            00036-0006F              3A           1
         BANK1            000A0-000EF              50           1
         BANK10           00520-0056F              50           1
         BANK11           005A0-005EF              50           1
@@ -284,14 +286,14 @@ UNUSED ADDRESS RANGES
         BANK9            004A0-004EF              50           1
         BIGRAM           02000-023EF             3F0           1
         CODE             00002-00003               2           2
-                         002E9-01FFF             800
+                         002CF-01FFF             800
         COMMON           0007D-0007D               1           1
         CONST            00002-00003               2           2
-                         002E9-01FFF             100
+                         002CF-01FFF             100
         ENTRY            00002-00003               2           2
-                         002E9-01FFF             100
+                         002CF-01FFF             100
         IDLOC            08000-08003               4           2
-        RAM              00035-0006F              3B           1
+        RAM              00036-0006F              3A           1
                          000A0-000EF              50
                          00120-0016F              50
                          001A0-001EF              50
@@ -336,21 +338,26 @@ UNUSED ADDRESS RANGES
         SFR7             00380-0039F              20           1
         SFR8             00400-0041F              20           1
         SFR9             00480-0049F              20           1
-        STACK            02015-023EF             3DB           1
+        STACK            02016-023EF             3DA           1
         STRCODE          00002-00003               2           2
-                         002E9-01FFF            1D17
+                         002CF-01FFF            1D31
         STRING           00002-00003               2           2
-                         002E9-01FFF             100
+                         002CF-01FFF             100
 
                                   Symbol Table
 
-?___awdiv                     cstackCOMMON 00077
 ?___wmul                      cstackCOMMON 00071
 ?_atoi                        cstackCOMMON 00077
+DAC_Set@DACvalue              cstackCOMMON 00071
+_ADCON0                       (abs)        00490
+_ADCON0bits                   (abs)        00490
+_ADCON1                       (abs)        00491
+_ADC_Config                   text13       002B1
 _ADRES                        (abs)        0048E
 _ANSELA                       (abs)        0018C
 _ANSELB                       (abs)        0018D
 _ANSELC                       (abs)        0018E
+_BAUD1CON                     (abs)        0019F
 _CCP1CON                      (abs)        00293
 _CCP2CON                      (abs)        00297
 _CCP7CON                      (abs)        0029B
@@ -358,29 +365,33 @@ _CCPR1                        (abs)        00291
 _CCPR2                        (abs)        00295
 _CCPR7                        (abs)        00299
 _CCPTMRS1bits                 (abs)        0029E
-_CCP_Config                   text12       00200
-_CREN                         (abs)        00CEC
-_ConfigureOscillator          text13       002D5
+_CCP_Config                   text12       001ED
+_CKPPS                        (abs)        00E3E
+_ConfigureOscillator          text14       002BC
 _DAC1CON0                     (abs)        0058E
 _DAC1REF                      (abs)        0058F
-_DAC_Config                   text11       002DE
+_DACLDbits                    (abs)        0058D
+_DAC_Config                   text10       002A4
+_DAC_Set                      text11       002C5
 _INTCONbits                   (abs)        0000B
-_InitApp                      text8        0022B
+_InitApp                      text7        001BA
 _LATA                         (abs)        0010C
 _LATB                         (abs)        0010D
 _LATC                         (abs)        0010E
 _OSCCONbits                   (abs)        0009B
 _PIE1bits                     (abs)        00091
 _PIR1bits                     (abs)        00011
-_PWM_Config                   text10       002E8
+_PWM_Config                   text9        002CE
 _RA7PPS                       (abs)        00E97
 _RB3PPS                       (abs)        00E9B
 _RB5PPS                       (abs)        00E9D
 _RC1PPS                       (abs)        00EA1
 _RC1REG                       (abs)        00199
+_RC1STA                       (abs)        0019D
 _RC1STAbits                   (abs)        0019D
 _RC6PPS                       (abs)        00EA6
-_SPBRG                        (abs)        0019B
+_RXPPS                        (abs)        00E3D
+_SP1BRG                       (abs)        0019B
 _T2CLKCON                     (abs)        00497
 _T2CON                        (abs)        00495
 _T2HLT                        (abs)        00496
@@ -388,14 +399,15 @@ _T2PR                         (abs)        00494
 _T2RST                        (abs)        00498
 _T2TMR                        (abs)        00493
 _TRISA                        (abs)        0008C
+_TRISAbits                    (abs)        0008C
 _TRISB                        (abs)        0008D
 _TRISC                        (abs)        0008E
 _TRISCbits                    (abs)        0008E
+_TX1REG                       (abs)        0019A
+_TX1STA                       (abs)        0019E
 _TX1STAbits                   (abs)        0019E
-_TXIF                         (abs)        0008C
-_TXREG                        (abs)        0019A
-_TXSTA1bits                   (abs)        0019E
-_UART_Config                  text9        002C5
+_UART_Config                  text8        00277
+_WPUA                         (abs)        0020C
 __CFG_BOREN$OFF               (abs)        00000
 __CFG_BORV$LO                 (abs)        00000
 __CFG_CLKOUTEN$OFF            (abs)        00000
@@ -608,68 +620,65 @@ __Ltext                       text         00000
 __S0                          (abs)        08009
 __S1                          (abs)        0007D
 __S2                          (abs)        00000
-___awdiv                      text7        00155
-___awdiv@counter              cstackBANK0  0002B
-___awdiv@dividend             cstackCOMMON 00079
-___awdiv@divisor              cstackCOMMON 00077
-___awdiv@quotient             cstackBANK0  0002D
-___awdiv@sign                 cstackBANK0  0002C
 ___int_sp                     stack        00000
 ___latbits                    (abs)        00002
 ___sp                         stack        00000
 ___stackhi                    (abs)        023EF
-___stacklo                    (abs)        02015
-___wmul                       text6        00277
+___stacklo                    (abs)        02016
+___wmul                       text6        0023B
 ___wmul@multiplicand          cstackCOMMON 00073
 ___wmul@multiplier            cstackCOMMON 00071
 ___wmul@product               cstackCOMMON 00075
-__end_of_CCP_Config           text12       0022B
-__end_of_ConfigureOscillator  text13       002DE
-__end_of_DAC_Config           text11       002E6
-__end_of_InitApp              text8        00254
-__end_of_PWM_Config           text10       002E9
-__end_of_UART_Config          text9        002D5
-__end_of___awdiv              text7        001B5
-__end_of___wmul               text6        00296
+__end_of_ADC_Config           text13       002BC
+__end_of_CCP_Config           text12       00218
+__end_of_ConfigureOscillator  text14       002C5
+__end_of_DAC_Config           text10       002B1
+__end_of_DAC_Set              text11       002CC
+__end_of_InitApp              text7        001ED
+__end_of_PWM_Config           text9        002CF
+__end_of_UART_Config          text8        00292
+__end_of___wmul               text6        0025A
 __end_of__initialization      cinit        00041
-__end_of_atoi                 text4        00155
-__end_of_autofocus            text2        00200
-__end_of_duty_PWM             text3        00277
-__end_of_isdigit              text5        002C5
+__end_of_atoi                 text4        00165
+__end_of_autofocus            text2        001BA
+__end_of_duty_PWM             text3        0023B
+__end_of_isdigit              text5        002A4
 __end_of_isr                  intentry     0002F
-__end_of_main                 maintext     000D7
-__end_of_strcpy               text1        002B3
+__end_of_main                 maintext     000E7
+__end_of_strcpy               text1        00277
 __initialization              cinit        00031
 __pbssBANK0                   bssBANK0     00020
 __pbssCOMMON                  bssCOMMON    0007C
 __pcstackBANK0                cstackBANK0  0002B
 __pcstackCOMMON               cstackCOMMON 00070
-__pdataBANK0                  dataBANK0    00034
-__pidataBANK0                 idataBANK0   002E6
+__pdataBANK0                  dataBANK0    00035
+__pidataBANK0                 idataBANK0   002CC
 __pintentry                   intentry     00004
 __pmaintext                   maintext     00045
-__pstringtext1                stringtext1  002E7
+__pstringtext1                stringtext1  002CD
 __pstringtext2                stringtext2  00000
-__ptext1                      text1        00296
-__ptext10                     text10       002E8
-__ptext11                     text11       002DE
-__ptext12                     text12       00200
-__ptext13                     text13       002D5
-__ptext2                      text2        001B5
-__ptext3                      text3        00254
-__ptext4                      text4        000D7
-__ptext5                      text5        002B3
-__ptext6                      text6        00277
-__ptext7                      text7        00155
-__ptext8                      text8        0022B
-__ptext9                      text9        002C5
+__ptext1                      text1        0025A
+__ptext10                     text10       002A4
+__ptext11                     text11       002C5
+__ptext12                     text12       001ED
+__ptext13                     text13       002B1
+__ptext14                     text14       002BC
+__ptext2                      text2        00165
+__ptext3                      text3        00218
+__ptext4                      text4        000E7
+__ptext5                      text5        00292
+__ptext6                      text6        0023B
+__ptext7                      text7        001BA
+__ptext8                      text8        00277
+__ptext9                      text9        002CE
+__size_of_ADC_Config          (abs)        00000
 __size_of_CCP_Config          (abs)        00000
 __size_of_ConfigureOscillator (abs)        00000
 __size_of_DAC_Config          (abs)        00000
+__size_of_DAC_Set             (abs)        00000
 __size_of_InitApp             (abs)        00000
 __size_of_PWM_Config          (abs)        00000
 __size_of_UART_Config         (abs)        00000
-__size_of___awdiv             (abs)        00000
 __size_of___wmul              (abs)        00000
 __size_of_atoi                (abs)        00000
 __size_of_autofocus           (abs)        00000
@@ -678,24 +687,24 @@ __size_of_isdigit             (abs)        00000
 __size_of_isr                 (abs)        00000
 __size_of_main                (abs)        00000
 __size_of_strcpy              (abs)        00000
-_atoi                         text4        000D7
-_autofocus                    text2        001B5
-_duty_PWM                     text3        00254
+_atoi                         text4        000E7
+_autofocus                    text2        00165
+_duty_PWM                     text3        00218
 _enter                        bssBANK0     00022
-_isdigit                      text5        002B3
-_isdigit$797                  cstackCOMMON 00071
+_isdigit                      text5        00292
+_isdigit$865                  cstackCOMMON 00071
 _isr                          intentry     00004
 _main                         maintext     00045
 _n                            bssCOMMON    0007C
 _palabra                      bssBANK0     00023
 _ret                          bssBANK0     00020
-_strcpy                       text1        00296
+_strcpy                       text1        0025A
 atoi@a                        cstackBANK0  00030
 atoi@s                        cstackBANK0  00032
 atoi@sign                     cstackBANK0  0002F
-autofocus@ADC                 cstackCOMMON 00075
-autofocus@dutyaf              cstackCOMMON 00077
-autofocus@i2                  cstackCOMMON 00079
+autofocus@ADC                 cstackCOMMON 00076
+autofocus@dutyaf              cstackCOMMON 00078
+autofocus@i2                  cstackCOMMON 0007A
 btemp                         (abs)        0007E
 duty_PWM@canal                cstackCOMMON 00073
 duty_PWM@valor                cstackCOMMON 00071
@@ -721,7 +730,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 43 in file "main.c"
+		line 41 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -737,15 +746,14 @@ FUNCTION INFORMATION:
  Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
       Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
       Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          0       1       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         0       1       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        1 bytes
- Hardware stack levels required when called:    3
+      Temps:          0       2       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       2       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels required when called:    4
  This function calls:
 		_ConfigureOscillator
+		_DAC_Set
 		_InitApp
-		___awdiv
-		___wmul
 		_atoi
 		_autofocus
 		_duty_PWM
@@ -793,13 +801,13 @@ Total ram usage:        5 bytes
 
  *************** function _autofocus *****************
  Defined at:
-		line 109 in file "main.c"
+		line 101 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  i2              2    9[COMMON] int 
-  dutyaf          2    7[COMMON] int 
-  ADC             2    5[COMMON] int 
+  i2              2   10[COMMON] int 
+  dutyaf          2    8[COMMON] int 
+  ADC             2    6[COMMON] int 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -811,9 +819,9 @@ Total ram usage:        5 bytes
  Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
       Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
       Locals:         6       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         7       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        7 bytes
+      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         8       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        8 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    2
  This function calls:
@@ -825,7 +833,7 @@ Total ram usage:        7 bytes
 
  *************** function _duty_PWM *****************
  Defined at:
-		line 128 in file "user.c"
+		line 127 in file "user.c"
  Parameters:    Size  Location     Type
   valor           2    1[COMMON] int 
   canal           1    3[COMMON] unsigned char 
@@ -947,41 +955,7 @@ Total ram usage:        6 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_main
 		_atoi
- This function uses a non-reentrant model
-
-
- *************** function ___awdiv *****************
- Defined at:
-		line 5 in file "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c"
- Parameters:    Size  Location     Type
-  divisor         2    7[COMMON] int 
-  dividend        2    9[COMMON] int 
- Auto vars:     Size  Location     Type
-  quotient        2    2[BANK0 ] int 
-  sign            1    1[BANK0 ] unsigned char 
-  counter         1    0[BANK0 ] unsigned char 
- Return value:  Size  Location     Type
-                  2    7[COMMON] int 
- Registers used:
-		wreg, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
-      Params:         4       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Locals:         0       4       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         5       4       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        9 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    1
- This function calls:
-		Nothing
- This function is called by:
-		_main
  This function uses a non-reentrant model
 
 
@@ -1007,8 +981,9 @@ Total ram usage:        9 bytes
       Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
+ Hardware stack levels required when called:    3
  This function calls:
+		_ADC_Config
 		_CCP_Config
 		_DAC_Config
 		_PWM_Config
@@ -1020,7 +995,7 @@ Total ram usage:        0 bytes
 
  *************** function _UART_Config *****************
  Defined at:
-		line 151 in file "user.c"
+		line 150 in file "user.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1028,7 +1003,7 @@ Total ram usage:        0 bytes
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg
+		wreg, status,2
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -1050,7 +1025,7 @@ Total ram usage:        0 bytes
 
  *************** function _PWM_Config *****************
  Defined at:
-		line 120 in file "user.c"
+		line 119 in file "user.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1080,7 +1055,7 @@ Total ram usage:        0 bytes
 
  *************** function _DAC_Config *****************
  Defined at:
-		line 142 in file "user.c"
+		line 141 in file "user.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1088,7 +1063,68 @@ Total ram usage:        0 bytes
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_DAC_Set
+ This function is called by:
+		_InitApp
+ This function uses a non-reentrant model
+
+
+ *************** function _DAC_Set *****************
+ Defined at:
+		line 184 in file "user.c"
+ Parameters:    Size  Location     Type
+  DACvalue        2    1[COMMON] int 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
 		wreg
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
+      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+		_DAC_Config
+ This function uses a non-reentrant model
+
+
+ *************** function _CCP_Config *****************
+ Defined at:
+		line 68 in file "user.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -1108,9 +1144,9 @@ Total ram usage:        0 bytes
  This function uses a non-reentrant model
 
 
- *************** function _CCP_Config *****************
+ *************** function _ADC_Config *****************
  Defined at:
-		line 69 in file "user.c"
+		line 189 in file "user.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1118,7 +1154,7 @@ Total ram usage:        0 bytes
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, status,2, status,0
+		wreg, status,2
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -1202,14 +1238,9 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\atoi.c
-		_atoi          		CODE           	00D7	0000	127
+		_atoi          		CODE           	00E7	0000	127
 
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\atoi.c estimated size: 127
-
-C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
-		___awdiv       		CODE           	0155	0000	97
-
-C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c estimated size: 97
 
 interrupts.c
 		_isr           		CODE           	0004	0000	44
@@ -1217,7 +1248,7 @@ interrupts.c
 interrupts.c estimated size: 44
 
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul16.c
-		___wmul        		CODE           	0277	0000	32
+		___wmul        		CODE           	023B	0000	32
 
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\Umul16.c estimated size: 32
 
@@ -1227,33 +1258,35 @@ shared
 shared estimated size: 17
 
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\strcpy.c
-		_strcpy        		CODE           	0296	0000	30
+		_strcpy        		CODE           	025A	0000	30
 
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\strcpy.c estimated size: 30
 
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\isdigit.c
-		_isdigit       		CODE           	02B3	0000	19
+		_isdigit       		CODE           	0292	0000	19
 
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\isdigit.c estimated size: 19
 
 user.c
-		_CCP_Config    		CODE           	0200	0000	44
-		_InitApp       		CODE           	022B	0000	42
-		_DAC_Config    		CODE           	02DE	0000	9
-		_PWM_Config    		CODE           	02E8	0000	2
-		_duty_PWM      		CODE           	0254	0000	36
-		_UART_Config   		CODE           	02C5	0000	17
+		_DAC_Set       		CODE           	02C5	0000	8
+		_CCP_Config    		CODE           	01ED	0000	44
+		_InitApp       		CODE           	01BA	0000	52
+		_DAC_Config    		CODE           	02A4	0000	14
+		_PWM_Config    		CODE           	02CE	0000	2
+		_ADC_Config    		CODE           	02B1	0000	12
+		_duty_PWM      		CODE           	0218	0000	36
+		_UART_Config   		CODE           	0277	0000	28
 
-user.c estimated size: 150
+user.c estimated size: 196
 
 main.c
-		_autofocus     		CODE           	01B5	0000	76
-		_main          		CODE           	0045	0000	147
+		_autofocus     		CODE           	0165	0000	86
+		_main          		CODE           	0045	0000	163
 
-main.c estimated size: 223
+main.c estimated size: 249
 
 system.c
-		_ConfigureOscillator		CODE           	02D5	0000	10
+		_ConfigureOscillator		CODE           	02BC	0000	10
 
 system.c estimated size: 10
 

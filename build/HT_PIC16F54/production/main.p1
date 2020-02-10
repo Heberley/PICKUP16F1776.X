@@ -4,11 +4,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ConfigureOscillator `(v ~T0 @X0 0 ef ]
 "13 user.h
 [v _InitApp `(v ~T0 @X0 0 ef ]
-"28 main.c
-[v _enter `uc ~T0 @X0 0 e ]
-"31 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
+[v F11826 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
+[v __delay `JF11826 ~T0 @X0 0 e ]
+[p i __delay ]
+"31
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
+"28 main.c
+[v _enter `uc ~T0 @X0 0 e ]
 "67 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c90\stdlib.h
 [v _atoi `(i ~T0 @X0 0 ef1`*Cuc ]
 "29 main.c
@@ -17,19 +21,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _n `uc ~T0 @X0 0 e ]
 "19 user.h
 [v _duty_PWM `(v ~T0 @X0 0 ef2`i`uc ]
-"37 main.c
+"35 main.c
 [v _autofocus `(v ~T0 @X0 0 ef ]
-"4132 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1776.h
-[v _TXREG `Vuc ~T0 @X0 0 e@410 ]
-"44273
-[v _TXIF `Vb ~T0 @X0 0 e@140 ]
+"18 user.h
+[v _DAC_Set `(v ~T0 @X0 0 ef1`i ]
+"4123 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1776.h
+[v _TX1REG `Vuc ~T0 @X0 0 e@410 ]
+"642
+[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S37 . TMR1IF TMR2IF CCP1IF SSP1IF TXIF RCIF ADIF TMR1GIF ]
+"652
+[s S38 :2 `uc 1 :1 `uc 1 ]
+[n S38 . . CCPIF ]
+"641
+[u S36 `S37 1 `S38 1 ]
+[n S36 . . . ]
+"657
+[v _PIR1bits `VS36 ~T0 @X0 0 e@17 ]
 "37 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c90\string.h
 [v _strcpy `(*uc ~T0 @X0 0 ef2`*uc`*Cuc ]
-[v F11826 `(v ~T0 @X0 1 tf1`ul ]
-"92 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
-[v __delay `JF11826 ~T0 @X0 0 e ]
-[p i __delay ]
-"11319 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1776.h
+"11372 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1776.h
+[s S548 :1 `uc 1 :1 `uc 1 :6 `uc 1 ]
+[n S548 . ADON GO CHS ]
+"11371
+[u S547 `S548 1 ]
+[n S547 . . ]
+"11378
+[v _ADCON0bits `VS547 ~T0 @X0 0 e@1168 ]
+"11319
 [v _ADRES `Vus ~T0 @X0 0 e@1166 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
@@ -13577,6 +13596,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user.h: 18: void DAC_Set(int DACvalue);
 [; ;user.h: 19: void duty_PWM(int valor, char canal) ;
 [; ;user.h: 20: void UART_Config(void);
+[; ;user.h: 21: void ADC_Config(void);
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -13695,220 +13715,207 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _k
 -> -> 13 `ui `uc
 ]
-[; ;main.c: 32: char k='\r';
-[; ;main.c: 36: void potenciometro(char valor);
-[; ;main.c: 37: void autofocus(void);
+[; ;main.c: 32: char k = '\r';
+[; ;main.c: 35: void autofocus(void);
 [v $root$_main `(v ~T0 @X0 0 e ]
-"43
+"41
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 43: void main(void) {
+[; ;main.c: 41: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 45: ConfigureOscillator();
-"45
+[; ;main.c: 43: ConfigureOscillator();
+"43
 [e ( _ConfigureOscillator ..  ]
-[; ;main.c: 48: InitApp();
-"48
+[; ;main.c: 46: InitApp();
+"46
 [e ( _InitApp ..  ]
-[; ;main.c: 51: while (1) {
-"51
+[; ;main.c: 53: while (1) {
+"53
 [e :U 1733 ]
 {
-[; ;main.c: 57: if (enter) {
-"57
+[; ;main.c: 58: _delay((unsigned long)((250)*(32000000/4000.0)));
+"58
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+[; ;main.c: 59: __nop();
+"59
+[e ( ___nop ..  ]
+[; ;main.c: 60: if (enter) {
+"60
 [e $ ! != -> _enter `i -> -> -> 0 `i `uc `i 1735  ]
 {
-[; ;main.c: 58: __nop();
-"58
+[; ;main.c: 61: __nop();
+"61
 [e ( ___nop ..  ]
-[; ;main.c: 59: ret = atoi(palabra);
-"59
+[; ;main.c: 62: ret = atoi(palabra);
+"62
 [e = _ret ( _atoi (1 -> &U _palabra `*Cuc ]
-[; ;main.c: 60: __nop();
-"60
-[e ( ___nop ..  ]
-[; ;main.c: 63: n = n - 2;
+[; ;main.c: 63: __nop();
 "63
-[e = _n -> - -> _n `i -> 2 `i `uc ]
-[; ;main.c: 64: if (palabra[n] == 'z') {
+[e ( ___nop ..  ]
+[; ;main.c: 64: n = n - 2;
 "64
+[e = _n -> - -> _n `i -> 2 `i `uc ]
+[; ;main.c: 65: if (palabra[n] == 'z') {
+"65
 [e $ ! == -> *U + &U _palabra * -> _n `ux -> -> # *U &U _palabra `ui `ux `ui -> 122 `ui 1736  ]
 {
-[; ;main.c: 65: duty_PWM(ret, 1);
-"65
-[e ( _duty_PWM (2 , _ret -> -> 1 `i `uc ]
+[; ;main.c: 66: duty_PWM(ret, 1);
 "66
+[e ( _duty_PWM (2 , _ret -> -> 1 `i `uc ]
+"67
 }
-[; ;main.c: 66: } else if (palabra[n] == 'y') {
+[; ;main.c: 67: } else if (palabra[n] == 'y') {
 [e $U 1737  ]
 [e :U 1736 ]
 [e $ ! == -> *U + &U _palabra * -> _n `ux -> -> # *U &U _palabra `ui `ux `ui -> 121 `ui 1738  ]
 {
-[; ;main.c: 67: duty_PWM(ret, 2);
-"67
-[e ( _duty_PWM (2 , _ret -> -> 2 `i `uc ]
+[; ;main.c: 68: duty_PWM(ret, 2);
 "68
+[e ( _duty_PWM (2 , _ret -> -> 2 `i `uc ]
+"69
 }
-[; ;main.c: 68: } else if (palabra[n] == 'a') {
+[; ;main.c: 69: } else if (palabra[n] == 't') {
 [e $U 1739  ]
 [e :U 1738 ]
-[e $ ! == -> *U + &U _palabra * -> _n `ux -> -> # *U &U _palabra `ui `ux `ui -> 97 `ui 1740  ]
+[e $ ! == -> *U + &U _palabra * -> _n `ux -> -> # *U &U _palabra `ui `ux `ui -> 116 `ui 1740  ]
 {
-[; ;main.c: 69: autofocus();
-"69
-[e ( _autofocus ..  ]
+[; ;main.c: 70: duty_PWM(ret, 3);
 "70
+[e ( _duty_PWM (2 , _ret -> -> 3 `i `uc ]
+"71
 }
-[; ;main.c: 70: } else if (palabra[n] == 'l') {
+[; ;main.c: 71: }else if (palabra[n] == 'a') {
 [e $U 1741  ]
 [e :U 1740 ]
-[e $ ! == -> *U + &U _palabra * -> _n `ux -> -> # *U &U _palabra `ui `ux `ui -> 108 `ui 1742  ]
+[e $ ! == -> *U + &U _palabra * -> _n `ux -> -> # *U &U _palabra `ui `ux `ui -> 97 `ui 1742  ]
 {
-[; ;main.c: 71: ret = (ret * 31) / 1023;
-"71
-[e = _ret / * _ret -> 31 `i -> 1023 `i ]
+[; ;main.c: 72: autofocus();
+"72
+[e ( _autofocus ..  ]
 "73
 }
+[; ;main.c: 73: } else if (palabra[n] == 'l') {
+[e $U 1743  ]
 [e :U 1742 ]
-"77
+[e $ ! == -> *U + &U _palabra * -> _n `ux -> -> # *U &U _palabra `ui `ux `ui -> 108 `ui 1744  ]
+{
+[; ;main.c: 74: DAC_Set(ret);
+"74
+[e ( _DAC_Set (1 _ret ]
+"75
+}
+[e :U 1744 ]
+"79
+[e :U 1743 ]
 [e :U 1741 ]
 [e :U 1739 ]
 [e :U 1737 ]
-[; ;main.c: 73: }
-[; ;main.c: 77: TXREG = n + 48;
-[e = _TXREG -> + -> _n `i -> 48 `i `uc ]
-[; ;main.c: 78: while (TXIF == 0);
-"78
-[e $U 1743  ]
-[e :U 1744 ]
-[e :U 1743 ]
-[e $ == -> _TXIF `i -> 0 `i 1744  ]
-[e :U 1745 ]
-[; ;main.c: 80: enter = 0;
+[; ;main.c: 75: }
+[; ;main.c: 79: TX1REG = n + 48;
+[e = _TX1REG -> + -> _n `i -> 48 `i `uc ]
+[; ;main.c: 80: while (PIR1bits.TXIF == 0);
 "80
-[e = _enter -> -> 0 `i `uc ]
-[; ;main.c: 81: __nop();
-"81
-[e ( ___nop ..  ]
-[; ;main.c: 82: strcpy(palabra, "");
+[e $U 1745  ]
+[e :U 1746 ]
+[e :U 1745 ]
+[e $ == -> . . _PIR1bits 0 4 `i -> 0 `i 1746  ]
+[e :U 1747 ]
+[; ;main.c: 82: enter = 0;
 "82
-[e ( _strcpy (2 , &U _palabra :s 1C ]
-[; ;main.c: 83: n = 0;
+[e = _enter -> -> 0 `i `uc ]
+[; ;main.c: 83: __nop();
 "83
-[e = _n -> -> 0 `i `uc ]
+[e ( ___nop ..  ]
+[; ;main.c: 84: strcpy(palabra, "");
+"84
+[e ( _strcpy (2 , &U _palabra :s 1C ]
+[; ;main.c: 85: n = 0;
 "85
+[e = _n -> -> 0 `i `uc ]
+"87
 }
 [e :U 1735 ]
-"89
+"91
 }
 [e :U 1732 ]
-"51
+"53
 [e $U 1733  ]
 [e :U 1734 ]
-[; ;main.c: 85: }
-[; ;main.c: 89: }
+[; ;main.c: 87: }
 [; ;main.c: 91: }
-"91
+[; ;main.c: 93: }
+"93
 [e :UE 1731 ]
 }
-"99
-[v _potenciometro `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;main.c: 99: void potenciometro(char valor) {
-[e :U _potenciometro ]
-[v _valor `uc ~T0 @X0 1 r1 ]
-[f ]
-"100
-[v _step `uc ~T0 @X0 1 a ]
-[; ;main.c: 100: char step = 0;
-[e = _step -> -> 0 `i `uc ]
-[; ;main.c: 101: valor = 2 * valor;
 "101
-[e = _valor -> * -> 2 `i -> _valor `i `uc ]
-[; ;main.c: 103: for (char i = 0; i < valor; i++) {
-"103
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $U 1750  ]
-[e :U 1747 ]
-{
-[; ;main.c: 104: step = !step;
-"104
-[e = _step -> -> ! != -> _step `i -> -> -> 0 `i `uc `i `i `uc ]
-"105
-}
-"103
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 1750 ]
-[e $ < -> _i `i -> _valor `i 1747  ]
-[e :U 1748 ]
-"105
-}
-[; ;main.c: 105: }
-[; ;main.c: 107: }
-"107
-[e :UE 1746 ]
-}
-"109
 [v _autofocus `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 109: void autofocus(void) {
+[; ;main.c: 101: void autofocus(void) {
 [e :U _autofocus ]
 [f ]
-"110
+"102
 [v _ADC `i ~T0 @X0 1 a ]
-[; ;main.c: 110: int ADC = 900;
+[; ;main.c: 102: int ADC = 900;
 [e = _ADC -> 900 `i ]
-"111
+"103
 [v _dutyaf `i ~T0 @X0 1 a ]
-[; ;main.c: 111: int dutyaf = 250;
+[; ;main.c: 103: int dutyaf = 250;
 [e = _dutyaf -> 250 `i ]
-[; ;main.c: 113: for (int i2 = 1; i2 < 500; i2++) {
-"113
+[; ;main.c: 105: for (int i2 = 1; i2 < 1023; i2++) {
+"105
 {
 [v _i2 `i ~T0 @X0 1 a ]
 [e = _i2 -> 1 `i ]
-[e $ < _i2 -> 500 `i 1752  ]
-[e $U 1753  ]
-[e :U 1752 ]
+[e $ < _i2 -> 1023 `i 1749  ]
+[e $U 1750  ]
+[e :U 1749 ]
 {
-[; ;main.c: 117: duty_PWM(i2, 1);
-"117
+[; ;main.c: 107: ADCON0bits.GO = 1;
+"107
+[e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
+[; ;main.c: 108: while (ADCON0bits.GO);
+"108
+[e $U 1752  ]
+[e :U 1753 ]
+[e :U 1752 ]
+[e $ != -> . . _ADCON0bits 0 1 `i -> -> -> 0 `i `Vuc `i 1753  ]
+[e :U 1754 ]
+[; ;main.c: 109: duty_PWM(i2, 1);
+"109
 [e ( _duty_PWM (2 , _i2 -> -> 1 `i `uc ]
-[; ;main.c: 118: _delay((unsigned long)((10)*(32000000/4000.0)));
-"118
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-[; ;main.c: 120: if (ADRES < ADC) {
-"120
+[; ;main.c: 110: _delay((unsigned long)((25)*(32000000/4000.0)));
+"110
+[e ( __delay (1 -> * -> -> 25 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+[; ;main.c: 112: if (ADRES < ADC) {
+"112
 [e $ ! < -> _ADRES `ui -> _ADC `ui 1755  ]
 {
-[; ;main.c: 121: ADC = ADRES;
-"121
+[; ;main.c: 113: ADC = ADRES;
+"113
 [e = _ADC -> _ADRES `i ]
-[; ;main.c: 122: dutyaf = i2;
-"122
+[; ;main.c: 114: dutyaf = i2;
+"114
 [e = _dutyaf _i2 ]
-"123
+"115
 }
 [e :U 1755 ]
-"124
+"116
 }
-"113
+"105
 [e ++ _i2 -> 1 `i ]
-[e $ < _i2 -> 500 `i 1752  ]
-[e :U 1753 ]
-"124
+[e $ < _i2 -> 1023 `i 1749  ]
+[e :U 1750 ]
+"116
 }
-[; ;main.c: 123: }
-[; ;main.c: 124: }
-[; ;main.c: 126: duty_PWM(dutyaf, 1);
-"126
+[; ;main.c: 115: }
+[; ;main.c: 116: }
+[; ;main.c: 118: duty_PWM(dutyaf, 1);
+"118
 [e ( _duty_PWM (2 , _dutyaf -> -> 1 `i `uc ]
-[; ;main.c: 131: }
-"131
-[e :UE 1751 ]
+[; ;main.c: 121: }
+"121
+[e :UE 1748 ]
 }
 [a 1C 0 ]
 
